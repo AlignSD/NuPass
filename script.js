@@ -29,17 +29,68 @@
 // WHEN prompted for password criteria
 // THEN I select which criteria to include in the password
 
-// Assignment Code
+// // Assignment Code
+
+
+
+
+
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+generateBtn.addEventListener("click", generatePassword);
+var passLength = prompt("How many characters will your password be? Enter a number between 8 and 128", '');
+ if (passLength >= 8 && passLength <= 128) {
+    
+     var lowerCase = confirm("Lowercase?");
+     if (lowerCase == true) {
+       alert("Lower Case Selected");
+     
+    //  }else var upperCase = confirm("Upper Case?"); {
+    //    if(upperCase == true) {
+    //      alert("Upper Case Selected");
+    //    }
+     } var upperCase = confirm("Upper Case?"); {
+       if (upperCase == true) {
+         alert("Upper Case Selected");
+       }
+     } var specialCharacters = confirm("special characters?"); {
+       if (specialCharacters == true) {
+         alert("Special Characters Selected");
+       }
+     }
+
+ } 
+ else {
+     alert("error");
+ }  
+//  else if 
+
+
+
+function generatePassword() {
+  var length = passLength,
+      charset = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+",
+      lowerCase = "abcdefghijklmnopqrstuvwxyz1234567890",
+      upperCase = "ABCDEFGHIJKLMNOPQRSTUVWZYZ",
+      specialCharacters = "1234567890!@#$%^&*()_+",
+      retVal = "";
+  for (var i = 0, n = charset.length; i < length; ++i) {
+      retVal += charset.charAt(Math.floor(Math.random() * n ));
+  }
+  return(document.getElementById("password").innerHTML = retVal)
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+
+
+
+
+
+
+
+
+
+// var string = "abcdefghijklmnopqrstuvwxyz"; //to upper 
+// var numeric = '0123456789';
+// var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
