@@ -90,5 +90,10 @@ function generatePassword() {
       choices = specialCharacters.concat(alphabet, alphabet2);
     }
 
+    // function for RNG //
+    for (var i = 0; i < enter; i++) {
+      var userChoice = choices[Math.floor(Math.random() * choices.length)];
+      password.push(userChoice);
+    }
 
   }
