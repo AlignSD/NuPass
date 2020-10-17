@@ -95,5 +95,28 @@ function generatePassword() {
       var userChoice = choices[Math.floor(Math.random() * choices.length)];
       password.push(userChoice);
     }
+    // If user chooses 2 options
+    else if (confirmLower && confirmLower) {
+      choices = alphabet.concat(alphabet2);
+    }
+    else if (confirmLower && confirmLower) {
+      choices = alphabet.concat(specialCharacters);
+    }
+    else if (confirmLower && confirmLower) {
+      choices = specialCharacters.concat(alphabet2);
+    }
+
+    // if User chooses 1 option
+    else if (confirmLower) {
+      choices = alphabet;
+    }
+    else if (confirmSpecialCharacters) {
+      choices = specialCharacters;
+    }
+
+    // needed to make a shift variable to convert lowercase to uppercase
+    else if (confirmUpper) {
+      choices = shift.concat(alphabet2);
+};
 
   }
