@@ -46,12 +46,15 @@ shift = [];
 password = [];
 
 var choices;
+
 // var to change var "alphabet" to an uppercase version
 var toUpper = function (x) {
   return x.toUpperCase();
-};
+}
 // creates a variable for uppercase conversion
 alphabet2 = alphabet.map(toUpper);
+
+
 
 
 var clicker = document.querySelector("#generate");
@@ -61,6 +64,12 @@ clicker.addEventListener("click", function () {
   document.getElementById("password").placeholder = pass;
 });
 
+// Create a function based of Users choice
+
+function UserInput(pass) {
+  document.getElementById("password").textContent = pass;
+  }
+  
 // Password Generation section
 function generatePassword() {
   enter = parseInt(prompt("How many characters would you like? Please choose between 8 and 128 character legnth"));
@@ -90,11 +99,6 @@ function generatePassword() {
       choices = specialCharacters.concat(alphabet, alphabet2);
     }
 
-    // function for RNG //
-    for (var i = 0; i < enter; i++) {
-      var userChoice = choices[Math.floor(Math.random() * choices.length)];
-      password.push(userChoice);
-    }
     // If user chooses 2 options
     else if (confirmLower && confirmLower) {
       choices = alphabet.concat(alphabet2);
@@ -117,6 +121,22 @@ function generatePassword() {
     // needed to make a shift variable to convert lowercase to uppercase
     else if (confirmUpper) {
       choices = shift.concat(alphabet2);
-};
 
-  }
+      // function for RNG //
+    for (var i = 0; i < enter; i++) {
+      var userChoice = choices[Math.floor(Math.random() * choices.length)];
+      password.push(userChoice);
+    }
+};  
+    // Need to convert array to string
+
+    var pass = password.join("");
+    UserInput(pass);
+    return pass;
+
+    
+}
+
+
+
+  
