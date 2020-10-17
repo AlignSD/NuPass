@@ -31,66 +31,50 @@
 
 // // Assignment Code
 
+// Variables based off user input //
+var enter;
+var confirmSpecialCharacters;
+var confirmUpper;
+var confirmLower;
+
+// Password variables
+specialCharacters = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+shift = [];
+password = [];
+
+var choices;
+// var to change var "alphabet" to an uppercase version
+var toUpper = function (x) {
+  return x.toUpperCase();
+};
+// creates a variable for uppercase conversion
+alphabet2 = alphabet.map(toUpper);
 
 
+var clicker = document.querySelector("#generate");
 
+clicker.addEventListener("click", function () {
+  pass = generatePassword();
+  document.getElementById("password").placeholder = pass;
+});
 
-var generateBtn = document.querySelector("#generate");
-
-
-generateBtn.addEventListener("click", generatePassword);
-var passLength = prompt("How many characters will your password be? Enter a number between 8 and 128", '');
- if (passLength >= 8 && passLength <= 128) {
-    
-     var lowerCase = confirm("Lowercase?");
-     if (lowerCase == true) {
-       alert("Lower Case Selected");
-     
-    //  }else var upperCase = confirm("Upper Case?"); {
-    //    if(upperCase == true) {
-    //      alert("Upper Case Selected");
-    //    }
-     } var upperCase = confirm("Upper Case?"); {
-       if (upperCase == true) {
-         alert("Upper Case Selected");
-       }
-     } var specialCharacters = confirm("special characters?"); {
-       if (specialCharacters == true) {
-         alert("Special Characters Selected");
-       }
-     }
-
- } 
- else {
-     alert("error");
- }  
-//  else if 
-
-
-
+// Password Generation section
 function generatePassword() {
-  var length = passLength,
-      charset = "ABCDEFGHIJKLMNOPQRSTUVWZYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+",
-      lowerCase = "abcdefghijklmnopqrstuvwxyz1234567890",
-      upperCase = "ABCDEFGHIJKLMNOPQRSTUVWZYZ",
-      specialCharacters = "1234567890!@#$%^&*()_+",
-      retVal = "";
-  for (var i = 0, n = charset.length; i < length; ++i) {
-      retVal += charset.charAt(Math.floor(Math.random() * n ));
+  enter = parseInt(prompt("How many characters would you like? Please choose between 8 and 128 character legnth"));
+
+    if (!enter) {
+      alert("Please enter a value");
+    } else if (enter < 8 || enter > 128) {
+      enter = parseInt(prompt("Please keep it between 8 and 128 characters long"));
+    
+    } else {
+      // This section contains Confirms for what type of 
+      // characters user would like in password
+      confirmSpecialCharacters = confirm("Would you like Special Characters?");
+      confirmUpper = confirm("Would you like Uppercase characters?");
+      confirmLower = confirm("Would you like Lowercase characters?");
+    };
+
+
   }
-  return(document.getElementById("password").innerHTML = retVal)
-
-}
-
-
-
-
-
-
-
-
-
-
-// var string = "abcdefghijklmnopqrstuvwxyz"; //to upper 
-// var numeric = '0123456789';
-// var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
