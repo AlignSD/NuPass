@@ -1,34 +1,3 @@
-
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN prompted for character types to include in the password
-// THEN I choose lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
-
-
-// When I click generate password we need to PROMPT a series of questions
-
-// Length of password min 8 max 128
-
-// Type of characters lowercase, uppercase, numeric and or special characters
-
-// when either of those are validated it should be validated
-
-// when its validated it generates a password based off of the chosen criteria
-
-// then we need to have it written or ALERTED on the page
-
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-
 // // Assignment Code
 
 // Variables based off user input //
@@ -60,8 +29,11 @@ alphabet2 = alphabet.map(toUpper);
 // creates a variable that selects divs that contain #generate ID
 var clicker = document.querySelector("#generate");
 
+// when generate password is clicked
 clicker.addEventListener("click", function () {
+  // sets pass variable to generatePassword function
   pass = generatePassword();
+  // takes pass and inserts it into password id
   document.getElementById("password").placeholder = pass;
 });
 
@@ -96,24 +68,29 @@ function generatePassword() {
     }
 
     // If user chooses 2 options
+    // uppercase and lowercase
     else if (confirmLower && confirmLower) {
       choices = alphabet.concat(alphabet2);
     }
+    // lower case and special characters and lowercase
     else if (confirmLower && confirmLower) {
       choices = alphabet.concat(specialCharacters);
     }
+    // uppercase and special characters
     else if (confirmLower && confirmLower) {
       choices = specialCharacters.concat(alphabet2);
     }
 
     // if User chooses 1 option
+
+    // lowercase
     else if (confirmLower) {
       choices = alphabet;
     }
+    // special Characters
     else if (confirmSpecialCharacters) {
       choices = specialCharacters;
     }
-
     // needed to make a shift variable to convert lowercase to uppercase
     else if (confirmUpper) {
       choices = shift.concat(alphabet2);
@@ -125,7 +102,7 @@ function generatePassword() {
       password.push(userChoice);
     }
       // Need to convert array to string
-
+      // removes commas between array elements
       var pass = password.join("");
       UserInput(pass);
       return pass;
