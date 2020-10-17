@@ -41,9 +41,10 @@ var confirmLower;
 specialCharacters = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-// Variables to hold arrays
+// Variables to hold arrays for character case
 shift = [];
-password = [];
+// variable that will store array for password legnth
+var password = [];
 
 var choices;
 
@@ -56,7 +57,7 @@ alphabet2 = alphabet.map(toUpper);
 
 
 
-
+// creates a variable that selects divs that contain #generate ID
 var clicker = document.querySelector("#generate");
 
 clicker.addEventListener("click", function () {
@@ -64,16 +65,11 @@ clicker.addEventListener("click", function () {
   document.getElementById("password").placeholder = pass;
 });
 
-// Create a function based of Users choice
-
-function UserInput(pass) {
-  document.getElementById("password").textContent = pass;
-  }
-  
 // Password Generation section
 function generatePassword() {
+  // a parseInt which prompts how many characters the user would like their password to be
   enter = parseInt(prompt("How many characters would you like? Please choose between 8 and 128 character legnth"));
-
+  // if they dont enter a value or the returned value is less that 8 and over 128 it will alert a message
     if (!enter) {
       alert("Please enter a value");
     } else if (enter < 8 || enter > 128) {
@@ -121,19 +117,27 @@ function generatePassword() {
     // needed to make a shift variable to convert lowercase to uppercase
     else if (confirmUpper) {
       choices = shift.concat(alphabet2);
-
+    };  
+    
       // function for RNG //
     for (var i = 0; i < enter; i++) {
       var userChoice = choices[Math.floor(Math.random() * choices.length)];
       password.push(userChoice);
     }
-};  
-    // Need to convert array to string
+      // Need to convert array to string
 
-    var pass = password.join("");
-    UserInput(pass);
-    return pass;
+      var pass = password.join("");
+      UserInput(pass);
+      return pass;
+  
 
+
+// Create a function based of Users choice
+
+  function UserInput(pass) {
+  document.getElementById("password").textContent = pass;
+  }
+  
     
 }
 
