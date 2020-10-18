@@ -11,7 +11,7 @@ body,
   margin: 0;
   padding: 0;
 }
-
+/* Body css properties */
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
@@ -29,7 +29,7 @@ header {
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
 }
-
+/* Card used to hold divs for password gen app */
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -71,7 +71,7 @@ header {
   display: block;
   clear: both;
 }
-
+/* CSS for button properties */
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -87,7 +87,7 @@ header {
   text-align: center;
   cursor: pointer;
 }
-
+/* button states */
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
@@ -96,7 +96,7 @@ button[disabled] {
 .float-right {
   float: right;
 }
-
+/* Password text area CSS properties */
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -117,7 +117,7 @@ button[disabled] {
   resize: none;
   overflow: hidden;
 }
-
+/* media queries for responsiveness */
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
