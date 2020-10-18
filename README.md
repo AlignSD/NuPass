@@ -35,7 +35,7 @@ Fork This Repository!
 
 Then Clone it to your desktop to make changes.
 
-> $ git clone git@github.com:AlignSD/NuPass.git<br>
+> $ git clone https://github.com/AlignSD/NuPass.git<br>
 > $ cd NuPass
 
 ## License
